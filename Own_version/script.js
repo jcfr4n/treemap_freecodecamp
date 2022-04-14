@@ -32,10 +32,39 @@ let drawCanvas = () => {
                         .enter()
                         .append('g');
 
+                        console.log(hierarchy.leaves());
     block.append('rect')
-        .attr('class','tile');
+        .attr('class','tile')
+        .attr('fill',(movie) => {
+            let color = 'black';
+            switch (movie.data.category){
+                case 'Action': 
+                    color = 'orange';
+                    break;
+                case 'Drama':
+                    color = 'blue';
+                    break;
+                case 'Adventure':
+                    color = 'red';
+                    break;
+                case 'Family':
+                    color = 'yellow';
+                    break;
+                case 'Animation':
+                    color = 'tan';
+                    break;
+                case 'Comedy':
+                    color = 'ivory';
+                    break;
+                case 'Biography':
+                    color = 'violet';
+                    break;
 
-    console.log(hierarchy.leaves());
+            }
+            return color;
+        })
+        ;
+
 };
 
 d3.json(urlDataMovies).then((data, error) => {
