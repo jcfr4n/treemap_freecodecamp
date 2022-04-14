@@ -14,7 +14,7 @@ Puedes utilizar HTML, JavaScript, CSS y la librería D3 de visualización basada
 
 **Historia de usuario #4**: Debe haber al menos 2 colores de relleno diferentes para los baldosas.
 
-**Historia de usuario #5**: Cada baldosa debe tener las propiedades data-name, data-category, ydata-value conteniendo sus correspondientes name, category, yvalue.
+**Historia de usuario #5**: Cada baldosa debe tener las propiedades data-name, data-category, y data-value conteniendo sus correspondientes name, category, y value.
 
 **Historia de usuario #6**: El área de cada baldosa debe corresponder a la cantidad de data-value: las baldosas con un data-value mayor deben tener un área más grande.
 

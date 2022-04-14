@@ -30,9 +30,13 @@ let drawCanvas = () => {
     let block = canvas.selectAll('g')
                         .data(movieTiles)
                         .enter()
-                        .append('g');
+                        .append('g')
+                        .attr('transform', (movie) => {
+                            return 'translate (' + movie.x0 + ', ' + movie.y0 +')';
+                        });
 
-                        console.log(hierarchy.leaves());
+    console.log(hierarchy.leaves());
+
     block.append('rect')
         .attr('class','tile')
         .attr('fill',(movie) => {
@@ -54,15 +58,36 @@ let drawCanvas = () => {
                     color = 'tan';
                     break;
                 case 'Comedy':
-                    color = 'ivory';
+                    color = 'green';
                     break;
                 case 'Biography':
                     color = 'violet';
                     break;
-
             }
             return color;
         })
+        .attr('data-name', (movie) => {
+            return movie.data.name;
+        })
+        .attr('data-category', (movie) => {
+            return movie.data.category;
+        })
+        .attr('data-value', (movie) => {
+            return movie.data.value;
+        })
+        .attr('width', (movie) => {
+            return movie.x1 - movie.x0;
+        })
+        .attr('height', (movie) => {
+            return movie.y1 - movie.y0;
+        });
+
+    block.append('text')
+        .text((movie) => {
+            return movie.data.name;
+        })
+        .attr('x', 5)
+        .attr('y', 20)
         ;
 
 };
