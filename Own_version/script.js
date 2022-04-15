@@ -1,5 +1,13 @@
 // jshint esversion:6
 
+/**
+ * coded by: Juan Carlos Francisco Mesa.
+ *
+ * Code at codepen.io: https://codepen.io/jcfr4n/pen/QWaVKWq
+ *
+ * code at github.com: https://github.com/jcfr4n/treemap_freecodecamp
+ */
+
 // Define an set some vars
 let urlDataMovies =
   "https://cdn.freecodecamp.org/testable-projects-fcc/data/tree_map/movie-data.json";
@@ -9,6 +17,9 @@ let movieData;
 let canvas = d3.select("#canvas");
 
 /**
+ * Function drawCanvas.
+ *
+ * This function handle the showing of the data
  *
  */
 
@@ -121,6 +132,10 @@ let drawCanvas = () => {
     .attr("x", 5)
     .attr("y", 20);
 };
+
+/**
+ * Conection with remote url to obtain the data
+ */
 
 d3.json(urlDataMovies).then((data, error) => {
   if (error) {

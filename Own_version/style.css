@@ -18,6 +18,8 @@ svg {
 #legend {
     margin-top: 1rem;
     min-height: 280px;
+    border: 2px solid black;
+    background-color: mediumturquoise;
 }
 
 #tooltip {
@@ -34,4 +36,8 @@ svg {
     box-shadow: 1px 1px 10px;
     border-radius: 2px;
     pointer-events: none;
+}
+
+.tile:hover {
+    fill: greenyellow;
 }
