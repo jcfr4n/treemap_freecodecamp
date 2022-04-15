@@ -85,7 +85,33 @@ let drawCanvas = () => {
     })
     .attr("height", (movie) => {
       return movie.y1 - movie.y0;
+    })
+    .on("mouseover", (event, movie) => {
+      tooltip.transition().duration(500).style("opacity", 0.9);
+
+      tooltip
+        .html(
+          "Nombre: " +
+            movie.data.name +
+            "<br>Categoría: " +
+            movie.data.category +
+            "<br>Value: " +
+            movie.data.value
+        )
+        .attr("id", "tooltip")
+        .attr("data-value", movie.data.value)
+        .style("left", event.pageX + 20 + "px")
+        .style("top", event.pageY - 30 + "px");
+    })
+    .on("mouseout", (event, item) => {
+      tooltip.transition().duration(500).style("opacity", 0);
     });
+
+  let tooltip = d3
+    .select("body")
+    .append("div")
+    .attr("id", "tooltip")
+    .style("opacity", 0);
 
   block
     .append("text")
